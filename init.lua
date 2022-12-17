@@ -46,11 +46,24 @@ for _,name in ipairs(colors) do
         textures = {"stainedglass_"..name[1]..".png", "", "stainedglass_pane_edge_"..name[1]..".png"},
         inventory_image = "stainedglass_"..name[1]..".png",
         wield_image = "stainedglass_"..name[1]..".png",
+        use_texture_alpha = "blend",
         sounds = default.node_sound_glass_defaults(),
-        groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
+        groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3, stained_glass_pane=1},
         recipe = {
             {"stainedglass:stained_glass_"..name[1], "stainedglass:stained_glass_"..name[1], "stainedglass:stained_glass_"..name[1]},
             {"stainedglass:stained_glass_"..name[1], "stainedglass:stained_glass_"..name[1], "stainedglass:stained_glass_"..name[1]}
         }
+    })
+    
+    minetest.register_craft({
+        output = "xpanes:pane_"..name[1].."_flat",
+        type = "shapeless",
+        recipe = {"xpanes:pane_flat", "dye:"..name[1]},
+    })
+    
+    minetest.register_craft({
+        output = "xpanes:pane_"..name[1].."_flat",
+        type = "shapeless",
+        recipe = {"group:stained_glass_pane", "dye:"..name[1]},
     })
 end
