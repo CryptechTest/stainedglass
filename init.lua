@@ -67,3 +67,31 @@ for _,name in ipairs(colors) do
         recipe = {"group:stained_glass_pane", "dye:"..name[1]},
     })
 end
+
+if minetest.get_modpath("lucky_block") then
+    local n = "stainedglass:stained_glass_"
+    lucky_block:add_blocks({
+        {"fal", {
+            n.."black", n.."blue", n.."brown", n.."cyan", n.."dark_green",
+            n.."dark_grey", n.."green", n.."grey", n.."magenta", n.."orange",
+            n.."pink", n.."red", n.."violet", n.."white", n.."yellow"
+        }, 0},
+        {"nod", "default:chest", 0, {
+            {name = n.."black", max = 10},
+            {name = n.."blue", max = 10},
+            {name = n.."brown", max = 10},
+            {name = n.."cyan", max = 10},
+            {name = n.."dark_green", max = 10},
+            {name = n.."dark_grey", max = 10},
+            {name = n.."green", max = 10},
+            {name = n.."grey", max = 10},
+            {name = n.."magenta", max = 10},
+            {name = n.."orange", max = 10},
+            {name = n.."pink", max = 10},
+            {name = n.."red", max = 10},
+            {name = n.."violet", max = 10},
+            {name = n.."white", max = 10},
+            {name = n.."yellow", max = 10}
+        }},
+    })
+end
